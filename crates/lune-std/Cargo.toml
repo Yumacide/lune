@@ -57,3 +57,4 @@ lune-std-roblox = { optional = true, version = "0.1.4", path = "../lune-std-robl
 lune-std-serde = { optional = true, version = "0.1.2", path = "../lune-std-serde" }
 lune-std-stdio = { optional = true, version = "0.1.2", path = "../lune-std-stdio" }
 lune-std-task = { optional = true, version = "0.1.2", path = "../lune-std-task" }
+mygui = { optional = false, version = "0.1.2", path = "../mygui" }

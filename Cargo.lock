@@ -1569,6 +1569,7 @@ dependencies = [
  "lune-utils",
  "mlua",
  "mlua-luau-scheduler",
+ "mygui",
  "serde",
  "serde_json",
  "tokio",
@@ -1846,6 +1847,14 @@ dependencies = [
  "cfg-if",
  "luau0-src",
  "pkg-config",
+]
+
+[[package]]
+name = "mygui"
+version = "0.1.2"
+dependencies = [
+ "lune-utils",
+ "mlua",
 ]
 
 [[package]]

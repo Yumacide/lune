@@ -18,6 +18,7 @@ pub enum LuneStandardLibrary {
     #[cfg(feature = "serde")]    Serde,
     #[cfg(feature = "stdio")]    Stdio,
     #[cfg(feature = "roblox")]   Roblox,
+    Mygui,
 }
 
 impl LuneStandardLibrary {
@@ -36,6 +37,7 @@ impl LuneStandardLibrary {
         #[cfg(feature = "serde")]    Self::Serde,
         #[cfg(feature = "stdio")]    Self::Stdio,
         #[cfg(feature = "roblox")]   Self::Roblox,
+        Self::Mygui
     ];
 
     /**
@@ -56,6 +58,7 @@ impl LuneStandardLibrary {
             #[cfg(feature = "serde")]    Self::Serde    => "serde",
             #[cfg(feature = "stdio")]    Self::Stdio    => "stdio",
             #[cfg(feature = "roblox")]   Self::Roblox   => "roblox",
+            Self::Mygui => "mygui",
 
             _ => unreachable!("no standard library enabled"),
         }
@@ -82,6 +85,7 @@ impl LuneStandardLibrary {
             #[cfg(feature = "serde")]    Self::Serde    => lune_std_serde::module(lua),
             #[cfg(feature = "stdio")]    Self::Stdio    => lune_std_stdio::module(lua),
             #[cfg(feature = "roblox")]   Self::Roblox   => lune_std_roblox::module(lua),
+            Self::Mygui => mygui::module(lua),
 
             _ => unreachable!("no standard library enabled"),
         };
@@ -111,6 +115,7 @@ impl FromStr for LuneStandardLibrary {
             #[cfg(feature = "serde")]    "serde"    => Self::Serde,
             #[cfg(feature = "stdio")]    "stdio"    => Self::Stdio,
             #[cfg(feature = "roblox")]   "roblox"   => Self::Roblox,
+            "mygui" => Self::Mygui,
 
             _ => {
                 return Err(format!(
